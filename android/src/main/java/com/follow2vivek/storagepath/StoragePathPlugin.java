@@ -32,7 +32,7 @@ public class StoragePathPlugin implements MethodCallHandler {
     /**
      * Plugin registration.
      */
-    public static ArrayList<FileModel> filesModelArrayList;
+    public static ArrayList<FileModel> filesModelArrayList = new ArrayList<>();
     boolean hasFolder = false;
     Activity activity;
     public static ArrayList<MediaModel> mediaModelArrayList = new ArrayList<>();
@@ -40,8 +40,6 @@ public class StoragePathPlugin implements MethodCallHandler {
 
     StoragePathPlugin(Activity activity) {
         this.activity = activity;
-        filesModelArrayList = new ArrayList<>();
-
     }
 
     public static void registerWith(Registrar registrar) {
@@ -107,6 +105,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
     private void getImagePaths(Result result) {
 
+        boolean hasFolder = false;
         int position = 0;
         Uri uri;
         Cursor cursor;
@@ -168,6 +167,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
     private void getVideoPath(Result result) {
 
+        boolean hasFolder = false;
         int position = 0;
         Uri uri;
         Cursor cursor;
@@ -240,6 +240,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
     private void getAudioPath(Result result) {
 
+        boolean hasFolder = false;
         int position = 0;
         Uri uri;
         Cursor cursor;
@@ -312,6 +313,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
     private void getFilesPath(Result result) {
 
+        boolean hasFolder = false;
         int position = 0;
         Uri uri;
         Cursor cursor;

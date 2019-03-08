@@ -1,6 +1,6 @@
 name: storage_path
 description: A new flutter plugin to get storage path.
-version: 0.0.5
+version: 0.0.7
 author: Vivek Sharma <vshrm1994@gmail.com>
 homepage: https://github.com/follow2vivek/StoragePath
 
