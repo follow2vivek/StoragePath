@@ -106,7 +106,6 @@ public class StoragePathPlugin implements MethodCallHandler {
 
 
     private void getImagePaths(Result result) {
-        filesModelArrayList.clear();
 
         int position = 0;
         Uri uri;
@@ -168,7 +167,6 @@ public class StoragePathPlugin implements MethodCallHandler {
 
 
     private void getVideoPath(Result result) {
-        mediaModelArrayList.clear();
 
         int position = 0;
         Uri uri;
@@ -241,7 +239,6 @@ public class StoragePathPlugin implements MethodCallHandler {
     }
 
     private void getAudioPath(Result result) {
-        mediaModelArrayList.clear();
 
         int position = 0;
         Uri uri;
@@ -314,7 +311,6 @@ public class StoragePathPlugin implements MethodCallHandler {
     }
 
     private void getFilesPath(Result result) {
-        fileModelArrayList.clear();
 
         int position = 0;
         Uri uri;
