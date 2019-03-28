@@ -18,7 +18,7 @@ import 'package:storage_path/storage_path.dart';
 Sample Code
 ```dart 
  try {
-      imagePath = await StorageImagesPath.imagesPath; //contains images path and folder name in json format
+      imagePath = await StoragePath.imagesPath; //contains images path and folder name in json format
     } on PlatformException {
       imagesPath = 'Failed to get path';
     }
@@ -26,9 +26,9 @@ Sample Code
 AND
 
 ```dart
-videoPath = await StorageImagesPath.videoPath;
-audioPath = await StorageImagesPath.audioPath;
-filePath = await StorageImagesPath.filePath;
+videoPath = await StoragePath.videoPath;
+audioPath = await StoragePath.audioPath;
+filePath = await StoragePath.filePath;
 ```
 
 Image Json Sample
