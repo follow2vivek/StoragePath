@@ -8,7 +8,7 @@ A flutter plugin to get folders name with files path.
 
 ```dart
 dependencies:
- storage_path: ^0.0.7
+ storage_path: ^0.0.8
 ```
 
 
