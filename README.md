@@ -3,7 +3,7 @@
 A flutter plugin to get folders name with files path.
 
 > Only for Android.
-> If you like plugin & want me to develop for iOS, help me to get Mac.
+> If you like this plugin, buy me a cup of coffee.
 > [PayPal](https://www.paypal.me/follow2vivek/)
 
 ```dart
