@@ -1,6 +1,6 @@
 # StoragePath
 
-A flutter plugin to get folders name with files path.
+A flutter plugin to get image, audio, video and files path.
 
 > Only for Android.
 > If you like this plugin, buy me a cup of coffee.
@@ -8,7 +8,7 @@ A flutter plugin to get folders name with files path.
 
 ```dart
 dependencies:
- storage_path: ^0.0.8
+ storage_path: ^0.0.9
 ```
 
 
