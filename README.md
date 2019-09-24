@@ -8,7 +8,7 @@ A flutter plugin to get image, audio, video and files path.
 
 ```dart
 dependencies:
- storage_path: ^0.0.9
+ storage_path: ^0.1.0
 ```
 
 

@@ -22,11 +22,11 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -34,6 +34,6 @@ android {
     dependencies{
         implementation 'com.google.code.gson:gson:2.8.5'
         implementation 'com.nabinbhandari.android:permissions:3.8'
-        implementation 'com.android.support:appcompat-v7:27.0.0'
+        implementation 'androidx.appcompat:appcompat:1.0.0'
     }
 }
