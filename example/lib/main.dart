@@ -18,7 +18,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getImagesPath();
+    getAudioPath();
+    getVideoPath();
   }
 
   Future<void> getImagesPath() async {

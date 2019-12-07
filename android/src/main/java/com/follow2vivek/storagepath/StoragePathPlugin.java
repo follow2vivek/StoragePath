@@ -32,11 +32,11 @@ public class StoragePathPlugin implements MethodCallHandler {
     /**
      * Plugin registration.
      */
-    public static ArrayList<FileModel> filesModelArrayList = new ArrayList<>();
+    public static ArrayList<FileModel> filesModelArrayList;
     boolean hasFolder = false;
     Activity activity;
-    public static ArrayList<MediaModel> mediaModelArrayList = new ArrayList<>();
-    public static ArrayList<DocumentModel> fileModelArrayList = new ArrayList<>();
+    public static ArrayList<MediaModel> mediaModelArrayList;
+    public static ArrayList<DocumentModel> fileModelArrayList;
 
     StoragePathPlugin(Activity activity) {
         this.activity = activity;
@@ -104,7 +104,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
 
     private void getImagePaths(Result result) {
-
+        filesModelArrayList = new ArrayList<>();
         boolean hasFolder = false;
         int position = 0;
         Uri uri;
@@ -161,12 +161,16 @@ public class StoragePathPlugin implements MethodCallHandler {
         Type listType = new TypeToken<ArrayList<FileModel>>() {
         }.getType();
         String json = gson.toJson(filesModelArrayList, listType);
+        if (cursor != null) {
+            cursor.close();
+        }
         result.success(json);
     }
 
 
     private void getVideoPath(Result result) {
 
+        mediaModelArrayList = new ArrayList<>();
         boolean hasFolder = false;
         int position = 0;
         Uri uri;
@@ -235,11 +239,16 @@ public class StoragePathPlugin implements MethodCallHandler {
         Type listType = new TypeToken<ArrayList<MediaModel>>() {
         }.getType();
         String json = gson.toJson(mediaModelArrayList, listType);
+        if (cursor != null) {
+            cursor.close();
+        }
+
         result.success(json);
     }
 
     private void getAudioPath(Result result) {
 
+        mediaModelArrayList = new ArrayList<>();
         boolean hasFolder = false;
         int position = 0;
         Uri uri;
@@ -308,11 +317,14 @@ public class StoragePathPlugin implements MethodCallHandler {
         Type listType = new TypeToken<ArrayList<MediaModel>>() {
         }.getType();
         String json = gson.toJson(mediaModelArrayList, listType);
+        if (cursor != null) {
+            cursor.close();
+        }
         result.success(json);
     }
 
     private void getFilesPath(Result result) {
-
+        fileModelArrayList = new ArrayList<>();
         boolean hasFolder = false;
         int position = 0;
         Uri uri;
@@ -400,6 +412,9 @@ public class StoragePathPlugin implements MethodCallHandler {
         Type listType = new TypeToken<ArrayList<FileModel>>() {
         }.getType();
         String json = gson.toJson(fileModelArrayList, listType);
+        if (cursor != null) {
+            cursor.close();
+        }
         result.success(json);
     }
 }
