@@ -127,7 +127,9 @@ public class StoragePathPlugin implements MethodCallHandler {
             absolutePathOfImage = cursor.getString(column_index_data);
 
             for (int i = 0; i < filesModelArrayList.size(); i++) {
-                if (filesModelArrayList.get(i).getFolder().equals(cursor.getString(column_index_folder_name))) {
+                if (filesModelArrayList.get(i) != null &&
+                        filesModelArrayList.get(i).getFolder() != null &&
+                        filesModelArrayList.get(i).getFolder().equals(cursor.getString(column_index_folder_name))) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -197,7 +199,9 @@ public class StoragePathPlugin implements MethodCallHandler {
         while (cursor.moveToNext()) {
             absolutePathOfImage = cursor.getString(column_index_data);
             for (int i = 0; i < mediaModelArrayList.size(); i++) {
-                if (mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                if (mediaModelArrayList.get(i) != null &&
+                        mediaModelArrayList.get(i).getFolder() != null &&
+                        mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -275,7 +279,9 @@ public class StoragePathPlugin implements MethodCallHandler {
         while (cursor.moveToNext()) {
             absolutePathOfImage = cursor.getString(column_index_data);
             for (int i = 0; i < mediaModelArrayList.size(); i++) {
-                if (mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                if (mediaModelArrayList.get(i) != null &&
+                        mediaModelArrayList.get(i).getFolder() != null &&
+                        mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -371,7 +377,9 @@ public class StoragePathPlugin implements MethodCallHandler {
         while (cursor.moveToNext()) {
             absolutePathOfImage = cursor.getString(column_index_data);
             for (int i = 0; i < fileModelArrayList.size(); i++) {
-                if (fileModelArrayList.get(i).getFolderName().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                if (fileModelArrayList.get(i) != null &&
+                        fileModelArrayList.get(i).getFolderName() != null &&
+                        fileModelArrayList.get(i).getFolderName().equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
