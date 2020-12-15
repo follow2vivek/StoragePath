@@ -1,7 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:storage_path/storage_path.dart';
 import 'package:storage_path_example/file_model.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String imagePath = "";
+
   @override
   void initState() {
     super.initState();
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       print(response);
       var imageList = response as List;
       List<FileModel> list =
-          imageList.map<FileModel>((json) => FileModel.fromJson(json)).toList();
+      imageList.map<FileModel>((json) => FileModel.fromJson(json)).toList();
 
       setState(() {
         imagePath = list[11].files[0];
@@ -52,7 +54,8 @@ class _MyAppState extends State<MyApp> {
     }
     return videoPath;
   }
-    Future<void> getAudioPath() async {
+
+  Future<void> getAudioPath() async {
     String audioPath = "";
     try {
       audioPath = await StoragePath.audioPath;
@@ -63,7 +66,8 @@ class _MyAppState extends State<MyApp> {
     }
     return audioPath;
   }
- Future<void> getFilePath() async {
+
+  Future<void> getFilePath() async {
     String filePath = "";
     try {
       filePath = await StoragePath.filePath;
@@ -74,6 +78,7 @@ class _MyAppState extends State<MyApp> {
     }
     return filePath;
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -87,9 +92,9 @@ class _MyAppState extends State<MyApp> {
             height: 200,
             child: imagePath != ""
                 ? Image.file(
-                    File(imagePath),
-                    fit: BoxFit.contain,
-                  )
+              File(imagePath),
+              fit: BoxFit.contain,
+            )
                 : Container(),
           ),
         ),
