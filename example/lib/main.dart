@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String imagePath = "";
+  String? imagePath;
   @override
   void initState() {
     super.initState();
@@ -22,10 +22,12 @@ class _MyAppState extends State<MyApp> {
     getVideoPath();
   }
 
-  Future<void> getImagesPath() async {
-    String imagespath = "";
+  Future<String?> getImagesPath() async {
+    String? imagespath = "";
     try {
       imagespath = await StoragePath.imagesPath;
+      if (imagespath == null) return null;
+
       var response = jsonDecode(imagespath);
       print(response);
       var imageList = response as List;
@@ -33,7 +35,7 @@ class _MyAppState extends State<MyApp> {
           imageList.map<FileModel>((json) => FileModel.fromJson(json)).toList();
 
       setState(() {
-        imagePath = list[11].files[0];
+        imagePath = list.first.files?.first;
       });
     } on PlatformException {
       imagespath = 'Failed to get path';
@@ -41,10 +43,12 @@ class _MyAppState extends State<MyApp> {
     return imagespath;
   }
 
-  Future<void> getVideoPath() async {
-    String videoPath = "";
+  Future<String?> getVideoPath() async {
+    String? videoPath = "";
     try {
       videoPath = await StoragePath.videoPath;
+      if (videoPath == null) return null;
+
       var response = jsonDecode(videoPath);
       print(response);
     } on PlatformException {
@@ -52,10 +56,13 @@ class _MyAppState extends State<MyApp> {
     }
     return videoPath;
   }
-    Future<void> getAudioPath() async {
-    String audioPath = "";
+
+  Future<String?> getAudioPath() async {
+    String? audioPath = "";
     try {
       audioPath = await StoragePath.audioPath;
+      if (audioPath == null) return null;
+
       var response = jsonDecode(audioPath);
       print(response);
     } on PlatformException {
@@ -63,10 +70,13 @@ class _MyAppState extends State<MyApp> {
     }
     return audioPath;
   }
- Future<void> getFilePath() async {
-    String filePath = "";
+
+  Future<String?> getFilePath() async {
+    String? filePath = "";
     try {
       filePath = await StoragePath.filePath;
+      if (filePath == null) return null;
+
       var response = jsonDecode(filePath);
       print(response);
     } on PlatformException {
@@ -74,6 +84,7 @@ class _MyAppState extends State<MyApp> {
     }
     return filePath;
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -85,12 +96,12 @@ class _MyAppState extends State<MyApp> {
           child: Container(
             width: 200,
             height: 200,
-            child: imagePath != ""
+            child: (imagePath?.isNotEmpty ?? false)
                 ? Image.file(
-                    File(imagePath),
+                    File(imagePath!),
                     fit: BoxFit.contain,
                   )
-                : Container(),
+                : const Placeholder(),
           ),
         ),
       ),
